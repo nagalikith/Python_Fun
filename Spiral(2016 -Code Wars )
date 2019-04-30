@@ -1,0 +1,33 @@
+def spiral(n,x,q):
+    z=q
+    q=q+1
+    for i in range(n):
+        for j in range(n):
+            if(i==0):
+                l[i+x][j+x]=q
+                q=q+1
+            elif(i==n-1):
+                l[i+x][n-j-1+x]=q
+                q=q+1
+            else:
+                if(j==0):
+                    l[i+x][j+x]=(n-1)*4+(-i+1)+z
+                elif(j==n-1):
+                    l[i+x][j+x]=q
+                    q=q+1
+    return l
+n=input('enter value of n')
+l= [[0 for x in range(n)] for y in range(n)]
+x1=n
+w=0
+
+for m in range(n-2):
+        q=w
+        l=spiral(x1,m,q)
+        x1=x1-2
+        w=l[m+1][m]
+        print w
+for a1 in range(n):
+    for a2 in range(n):
+        print l[a1][a2],
+    print
